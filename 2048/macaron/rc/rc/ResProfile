@@ -1,0 +1,8 @@
+Str;rc/Str.rc
+Color;rc/Color.rc
+Image;rc/Image.rc
+Bool;rc/Bool.rc
+Num;rc/Num.rc
+Label;rc
+Resolution;1280,720
+Language;En

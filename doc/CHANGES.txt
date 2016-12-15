@@ -1,0 +1,39 @@
+1.1.CL685832 (Submitted Date: 2012/10/31)
+    Features:
+        1. add Music Preview event for metadata
+        2. add handle bSubscribeToEventOfDMS (mantis ID :0275914), UI/APP could decide whether subscribe to DMS or not by input parameter
+
+    Bugfix:
+        1. fix manits 0283226: [A5_129E_DLNA_DMP] Awox_Image: preview圖片不完全
+        2. refine mantis 0279347: [Refine] awGStreamerBackEnd::GST_element_added_cb
+        3. fix mantis 0283581: [A5][DLNA_DMP_MM_Philips] video's preview screen will remain short time after pressing "play".
+        4. fix mantis 0279550: [FCR-C][DMP] Need to refine awCPSearchByUPnP()
+        5. avoid MCVT v2.0 testing DMR Seek state transition from PLAYING->TRANSTITIONING->PLAYING cause crash
+        6. Due to currently we are UNABLE to pass DMR MCVT v2.0 Seek & Scan
+           a. disable DMR seek funtionality
+           b. with current code, DMR Scan is disabled
+        7. remove WMVMED_BASE & WMVMED_FULL in ProtocolInfo,due to currently they both cannot pass certification
+        8. fix pause state cannot FF/FB, also need to sync CL667886 + CL649997
+        9. fix manits ID:0273379 [TM13] [DMP] add verification: if input parameter is folder path, then return false without deleting the folder
+        10. fix manits ID:275907 [DMP] make sure Thread is safe
+        11. mantis ID :0260735 added mechanism (check DLNA.ORG_FLAGS) to let UI know whether UI should disable/enable pause button
+        12. fix missing artist and years info
+
+    <mips only> AwoX r37453 SDK :
+        1. Seek Fail of MCVT v2.0 (also need awGStreamerPlayer modifications, but not yet apply)
+        2. media type photo, SDK no longer block pause command: fix using AllShare DMS, when playing photo cannot pause/resume
+        3. CTT v1.5.58 DMR 7.3.93.2 random fail
+
+    <arm only> AwoX r36321 SDK :
+        1. DMR CTT 7.3.98.7 Randomly fail
+        2. 0271892: [DMR] UCTT AV-AVT:1-1.1 SetAVTransportURI() action random Fail
+        3. repeatedly set DMR show/hide cause crash
+        4. DMR CTT 7.3.17.2 randomly get fail result with wrongly sending "NO_MEDIA_PRESENT" state
+
+    Remark:
+        1. Full test based on
+           a. MM Test (IOP): //DAILEO/SN_Branch/New_Feature/DLNA_roadmap_develop/DLNA_v4_SN_-03.09_CL668281/Supernova/ CL671751
+           b. Certification Tool Test:  //DAILEO/SN_Branch/New_Feature/DLNA_roadmap_develop/DLNA_v4_SN_-03.09_CL668281/Supernova/ CL686793
+        2. release DLNA based on //AEGIS/Mephisto/dlna_v1.5/branch_CL670871/ CL685832
+        3. build DLNA binaries based on //DAILEO/Supernova/ CL686872
+

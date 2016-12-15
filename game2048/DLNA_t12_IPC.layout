@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Board_DMPDMR" />
+	<File name="include/DLNADMPFileSelectorFrame.h" open="0" top="0" tabpos="1">
+		<Cursor position="1054" topLine="15" />
+	</File>
+	<File name="src/MainMenuFrame.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="89915" topLine="1156" />
+	</File>
+	<File name="src/main.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="11741" topLine="446" />
+	</File>
+</CodeBlocks_layout_file>

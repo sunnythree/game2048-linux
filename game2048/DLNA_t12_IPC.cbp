@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<RcPath path="rc" />
+	<Project>
+		<Option title="DLNA" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="simulator">
+				<Option output="bin/DLNA_simulator" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/" />
+				<Option object_output=".obj/sim" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="--dfb:session=4 --dfb:system=x11 --dfb:bg-color=FF000000 --dfb:translucent-windows --dfb:cursor --dfb:mode=1366x768 --dfb:quiet" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-DSIM_BUILD" />
+					<Add option="-DNEW_IMG" />
+					<Add directory="sim/develop/include/muf" />
+					<Add directory="sim/develop/include/muf/base" />
+					<Add directory="sim/develop/include/muf/base/animation" />
+					<Add directory="sim/develop/include/muf/base/diversity" />
+					<Add directory="sim/develop/include/muf/base/supplement" />
+					<Add directory="sim/develop/include/muf/widget" />
+					<Add directory="sim/develop/include/muf/widget/container" />
+					<Add directory="include" />
+					<Add directory="sim/develop/include/dfb/x86/directfb" />
+				</Compiler>
+				<Linker>
+					<Add option="-lmuf" />
+					<Add option="-ljpeg" />
+					<Add option="-lmlogger" />
+					<Add library="directfb" />
+					<Add library="rt" />
+					<Add directory="sim/develop/lib/x86" />
+				</Linker>
+			</Target>
+			<Target title="Board_DMPDMR">
+				<Option output="../DLNA/release/bin/DLNA_DMP" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../DLNA/release/bin" />
+				<Option object_output="../DLNA/release/.obj/board" />
+				<Option type="1" />
+				<Option compiler="mipslinuxgnugcc" />
+				<Compiler>
+					<Add option="-msoft-float" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-EL" />
+					<Add option="-DTARGET_BUILD" />
+					<Add option="-DMSOS_TYPE_LINUX" />
+					<Add option="-DNEW_IMG" />
+					<Add option="-DMSTAR_IPC" />
+					<Add option="-DDMR_ENABLED" />
+					<Add option="-DDMP_ENABLED" />
+					<Add option="-DTHUMBNAIL_ENABLED=0" />
+					<Add directory="include" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/mlogger" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/base" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/widget/container" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/base/animation" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/base/supplement" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/widget" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/dfb/target/directfb" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/icu" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/apm" />
+				</Compiler>
+				<Linker>
+					<Add option="-EL" />
+					<Add option="-Wl,-rpath-link,$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib/utopia/" />
+					<Add option="-Wl,-rpath-link,../DLNA/lib/" />
+					<Add option="-Wl,-rpath-link,$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib/" />
+					<Add option="-Wl,-rpath-link,$(MST_SDK_PATH)/target/dfbinfo" />
+					<Add option="-msoft-float" />
+					<Add option="-lmuf" />
+					<Add option="-lAPM" />
+					<Add option="-lMStarDMP" />
+					<Add option="-lMStarDMR" />
+					<Add option="-lCommUI" />
+					<Add directory="../DLNA/lib" />
+					<Add directory="$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib" />
+					<Add directory="$(MST_SDK_PATH)/target/dfbinfo" />
+					<Add directory="$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib/directfb-1.4-0/inputdrivers" />
+				</Linker>
+				<Environment>
+					<Variable name="MST_SDK_PATH" value="/home/nydia.liao/Perforce/DAILEO/Supernova/" />
+					<Variable name="PROJ_MODE" value="europe_dtv" />
+					<Variable name="MST_SDK_CCID" value="t12" />
+				</Environment>
+			</Target>
+			<Target title="Board_DMROnly">
+				<Option output="../DLNA/release/bin/DLNA_DMP" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../DLNA/release/bin" />
+				<Option object_output="../DLNA/release/.obj/board" />
+				<Option type="1" />
+				<Option compiler="mipslinuxgnugcc" />
+				<Compiler>
+					<Add option="-msoft-float" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-EL" />
+					<Add option="-DTARGET_BUILD" />
+					<Add option="-DMSOS_TYPE_LINUX" />
+					<Add option="-DNEW_IMG" />
+					<Add option="-DMSTAR_IPC" />
+					<Add option="-DDMR_ENABLED" />
+					<Add directory="include" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/mlogger" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/base" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/widget/container" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/base/animation" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/base/supplement" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/widget" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/dfb/target/directfb" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/icu" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/apm" />
+				</Compiler>
+				<Linker>
+					<Add option="-EL" />
+					<Add option="-Wl,-rpath-link,$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib/utopia/" />
+					<Add option="-Wl,-rpath-link,../DLNA/lib/" />
+					<Add option="-Wl,-rpath-link,$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib/" />
+					<Add option="-Wl,-rpath-link,$(MST_SDK_PATH)/target/dfbinfo" />
+					<Add option="-msoft-float" />
+					<Add option="-lmuf" />
+					<Add option="-lMStarDMR" />
+					<Add option="-lCommUI" />
+					<Add directory="../DLNA/lib" />
+					<Add directory="$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib" />
+					<Add directory="$(MST_SDK_PATH)/target/dfbinfo" />
+					<Add directory="$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib/directfb-1.4-0/inputdrivers" />
+				</Linker>
+				<Environment>
+					<Variable name="MST_SDK_PATH" value="/home/nydia.liao/Perforce/DAILEO/Supernova" />
+					<Variable name="PROJ_MODE" value="europe_dtv" />
+					<Variable name="MST_SDK_CCID" value="t12" />
+				</Environment>
+			</Target>
+			<Target title="Board_DMPOnly">
+				<Option output="../DLNA/bin/DLNA_DMP" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../DLNA/release/bin" />
+				<Option object_output="../DLNA/release/.obj/board" />
+				<Option type="1" />
+				<Option compiler="mipslinuxgnugcc" />
+				<Compiler>
+					<Add option="-msoft-float" />
+					<Add option="-Wall" />
+					<Add option="-g" />
+					<Add option="-EL" />
+					<Add option="-DTARGET_BUILD" />
+					<Add option="-DMSOS_TYPE_LINUX" />
+					<Add option="-DNEW_IMG" />
+					<Add option="-DMSTAR_IPC" />
+					<Add option="-DDMP_ENABLED" />
+					<Add option="-DTHUMBNAIL_ENABLED=0" />
+					<Add directory="include" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/mlogger" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/base" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/widget/container" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/base/animation" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/base/supplement" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/muf/widget" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/dfb/target/directfb" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/icu" />
+					<Add directory="$(MST_SDK_PATH)/develop/include/apm" />
+				</Compiler>
+				<Linker>
+					<Add option="-EL" />
+					<Add option="-Wl,-rpath-link,$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib/utopia/" />
+					<Add option="-Wl,-rpath-link,../DLNA/lib" />
+					<Add option="-Wl,-rpath-link,$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib/" />
+					<Add option="-Wl,-rpath-link,$(MST_SDK_PATH)/target/dfbinfo" />
+					<Add option="-msoft-float" />
+					<Add option="-lmuf" />
+					<Add option="-lMStarDMP" />
+					<Add option="-lCommUI" />
+					<Add directory="../DLNA/lib" />
+					<Add directory="$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib" />
+					<Add directory="$(MST_SDK_PATH)/target/dfbinfo" />
+					<Add directory="$(MST_SDK_PATH)/target/$(PROJ_MODE).$(MST_SDK_CCID)/mslib/directfb-1.4-0/inputdrivers" />
+				</Linker>
+				<Environment>
+					<Variable name="MST_SDK_PATH" value="/home/nydia.liao/Perforce/DAILEO/Supernova" />
+					<Variable name="PROJ_MODE" value="europe_dtv" />
+					<Variable name="MST_SDK_CCID" value="t12" />
+				</Environment>
+			</Target>
+		</Build>
+		<Unit filename="include/Bool.rc.h" />
+		<Unit filename="include/Color.rc.h" />
+		<Unit filename="include/DLNADMPFileSelectorApp.h" />
+		<Unit filename="include/DLNADMPFileSelectorFrame.h" />
+		<Unit filename="include/DMPMoviePlayerApp.h" />
+		<Unit filename="include/DMPMoviePlayerFrame.h" />
+		<Unit filename="include/DMPMusicPlayerApp.h" />
+		<Unit filename="include/DMPMusicPlayerFrame.h" />
+		<Unit filename="include/DMPPhotoPlayerApp.h" />
+		<Unit filename="include/DMPPhotoPlayerFrame.h" />
+		<Unit filename="include/DLNAWorkingThread.h" />
+		<Unit filename="include/Font.rc.h" />
+		<Unit filename="include/Image.rc.h" />
+		<Unit filename="include/MAppReg.h" />
+		<Unit filename="include/MainMenuApp.h" />
+		<Unit filename="include/MainMenuFrame.h" />
+		<Unit filename="include/Num.rc.h" />
+		<Unit filename="include/Str.rc.h" />
+		<Unit filename="include/main.h" />
+		<Unit filename="mstudio/DLNADMPFileSelector.wxs" />
+		<Unit filename="mstudio/DMPMoviePlayer.wxs" />
+		<Unit filename="mstudio/DMPMusicPlayer.wxs" />
+		<Unit filename="mstudio/DMPPhotoPlayer.wxs" />
+		<Unit filename="mstudio/MainMenu.wxs" />
+		<Unit filename="src/DLNADMPFileSelectorApp.cpp" />
+		<Unit filename="src/DLNADMPFileSelectorFrame.cpp" />
+		<Unit filename="src/DMPMoviePlayerApp.cpp" />
+		<Unit filename="src/DMPMoviePlayerFrame.cpp" />
+		<Unit filename="src/DMPMusicPlayerApp.cpp" />
+		<Unit filename="src/DMPMusicPlayerFrame.cpp" />
+		<Unit filename="src/DMPPhotoPlayerApp.cpp" />
+		<Unit filename="src/DMPPhotoPlayerFrame.cpp" />
+		<Unit filename="src/DLNAWorkingThread.cpp" />
+		<Unit filename="src/MAppReg.cpp" />
+		<Unit filename="src/MainMenuApp.cpp" />
+		<Unit filename="src/MainMenuFrame.cpp" />
+		<Unit filename="src/main.cpp" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger>
+				<search_path add="../../../core/muf/base" />
+			</debugger>
+			<mstudio version="1">
+				<resources>
+					<MApp wxs="mstudio/MainMenu.wxs" src="src/MainMenuFrame.cpp" hdr="include/MainMenuFrame.h" default="1" name="MainMenu" language="CPP" />
+					<MApp wxs="mstudio/DLNADMPFileSelector.wxs" src="src/DLNADMPFileSelectorFrame.cpp" hdr="include/DLNADMPFileSelectorFrame.h" default="0" name="DLNADMPFileSelector" language="CPP" />
+					<MApp wxs="mstudio/DMPMoviePlayer.wxs" src="src/DMPMoviePlayerFrame.cpp" hdr="include/DMPMoviePlayerFrame.h" default="0" name="DMPMoviePlayer" language="CPP" />
+					<MApp wxs="mstudio/DMPMusicPlayer.wxs" src="src/DMPMusicPlayerFrame.cpp" hdr="include/DMPMusicPlayerFrame.h" default="0" name="DMPMusicPlayer" language="CPP" />
+					<MApp wxs="mstudio/DMPPhotoPlayer.wxs" src="src/DMPPhotoPlayerFrame.cpp" hdr="include/DMPPhotoPlayerFrame.h" default="0" name="DMPPhotoPlayer" language="CPP" />
+				</resources>
+				<design_area scaling_ratio="100" />
+			</mstudio>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

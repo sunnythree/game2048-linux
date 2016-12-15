@@ -1,0 +1,2 @@
+#define ID_BOOL_BUTTON_DISABLE    0
+#define ID_BOOL_BUTTON_ENABLE    1
